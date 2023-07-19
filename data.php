@@ -12,7 +12,8 @@
     </head>
     <body>
         <center>
-            <h1> Players Data </h1> <br>
+            <h1> Players Data </h1> 
+            <br>
         <?php
 
         // Create a database connection
@@ -30,9 +31,9 @@
         // If there are any results, loop through them and display them
         if ($result->num_rows > 0) {
             echo "<table>";
-            echo "<tr><th>ID</th><th>Name</th><th>Level</th><th>Clan Name</th></tr>";
+            echo "<tr><th>ID</th><th>Name</th><th>Level</th><th>Discord</th><th>Clan Name</th></tr>";
             while ($row = $result->fetch_assoc()) {
-                echo "<tr><td>" . $row['ID'] . "</td><td>" . $row['name'] . "</td><td>" . $row['level'] . "</td><td>" . $row['clan'] . "</td></tr>";
+                echo "<tr><td>" . $row['ID'] . "</td><td>" . $row['name'] . "</td><td>" . $row['level'] . "</td><td>" . $row['discord'] . "</td><td>" . $row['clan'] . "</td></tr>";
             }
             echo "</table>";
         } else {

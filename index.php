@@ -6,7 +6,7 @@
   <style>
     body {
       font-family: sans-serif;
-      background-color: #f5f5f5;
+      background-color: black;
     }
 
     .container {
@@ -52,6 +52,7 @@
       <input type="text" name="name" placeholder="Name">
       <input type="text" name="level" placeholder="Level">
       <input type="text" name="clan" placeholder="Clan Name">
+      <input type="text" name="discord" placeholder="Discord">
       <input type="submit" name="submit" value="Enter">
     </form>
   </div>
@@ -72,8 +73,9 @@
         $name = $_POST['name'];
         $level = $_POST['level'];
         $clan = $_POST['clan'];
+        $discord = $_POST['discord'];
 
-        $sql = "INSERT INTO data (id, name, level, clan) VALUES ('$id', '$name', '$level', '$clan')";
+        $sql = "INSERT INTO data (id, name, level, clan, discord) VALUES ('$id', '$name', '$level', '$clan', '$discord')";
 
         // Execute the query
         $result = $db->query($sql);
@@ -82,7 +84,7 @@
         if ($result) {
             echo "Registration successful!";
         } else {
-            echo "Registration failed: " . $db->error;
+            echo "<p style='color:white'> Registration failed: " . $db->error;
         }
     }
 
