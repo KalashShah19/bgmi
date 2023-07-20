@@ -50,7 +50,6 @@
     <form method="post">
       <input type="text" name="id" placeholder="ID">
       <input type="text" name="name" placeholder="Name">
-      <input type="text" name="level" placeholder="Level">
       <input type="text" name="clan" placeholder="Clan Name">
       <input type="text" name="discord" placeholder="Discord">
       <input type="submit" name="submit" value="Enter">
@@ -60,7 +59,7 @@
   <?php
 
     // Create a database connection
-    $db = new mysqli("localhost", "root", "root", "bgmi");
+    include 'conn.php';
 
     // Check if the connection was successful
     if ($db->connect_error) {
@@ -71,18 +70,17 @@
     if (isset($_POST["submit"])) {
         $id = $_POST['id'];
         $name = $_POST['name'];
-        $level = $_POST['level'];
         $clan = $_POST['clan'];
         $discord = $_POST['discord'];
 
-        $sql = "INSERT INTO data (id, name, level, clan, discord) VALUES ('$id', '$name', '$level', '$clan', '$discord')";
+        $sql = "INSERT INTO data (id, name, clan, discord) VALUES ('$id', '$name', '$clan', '$discord')";
 
         // Execute the query
         $result = $db->query($sql);
 
         // Check if the query was successful
         if ($result) {
-            echo "Registration successful!";
+            echo "<p style='color:white'> Registration successful! </p>";
         } else {
             echo "<p style='color:white'> Registration failed: " . $db->error;
         }
